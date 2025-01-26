@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Anushka Singh</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yuji+Mai&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="#home" class="logo">Anushka Singh</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>Hi, I'm Anushka Singh</h1>
+            <p>Welcome to my portfolio. Explore my work and projects.</p>
+            <a href="#projects" class="btn">View Projects</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2><u>About Me</u></h2>
+        <p>I'm a passionate developer with expertise in creating modern, responsive, and user-friendly websites. I love experimenting with animations and effects to deliver engaging user experiences.</p>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <h2><u>Projects</u></h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <img src= "https://themewagon.com/wp-content/uploads/2021/12/restoran.png" alt="Project 1">
+                <h3><u>Restraunt Website</u></h3>
+                <p>The restaurant website is a modern and responsive web template designed to showcase the best of your dining experience. It features a welcoming home page to highlight the ambiance and unique offerings of the restaurant, a detailed menu page with categories, item descriptions, and prices, and an about us section to share the restaurant's story and mission. Additionally, the contact page provides essential information like location, operating hours, and a form for reservations or inquiries. Built using HTML,CSS,and JavaScript, the website ensures a seamless and engaging user experience across all devices. </p>
+            </div>
+            <div class="project-card">
+                <img src="https://i.pinimg.com/736x/ac/54/a1/ac54a128942c750799c2c1fe144d2467.jpg" alt="Project 2">
+                <h3><u>To Do List</u></h3>
+                <p> This project is a web-based application designed to help users manage their daily routines effectively. It serves as a digital alternative to a traditional diary, allowing users to add, edit, and delete tasks as needed. The application is built using HTML,CSS and JavaScript, ensuring a user-friendly interface and responsive design. By organizing tasks in a clear and accessible manner, this ToDo-App aims to enhance productivity and keep users on track with their daily commitments.</p>
+            </div>
+            <div class="project-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3QvjUFlRC6-ArHgYXFJq7oFsc1Ded-9Z4UA&s" alt="Project 3">
+                <h3><u>Brand Page</u></h3>
+                <p> The brand page is a sleek and modern web application developed using ReactJS, showcasing Nike shoes with a focus on style and functionality. The page features high-quality images of Nike footwear, designed to captivate visitors and highlight the brand's iconic products. It provides details about the shoes, including key features and benefits, and integrates links to shopping platforms where users can purchase them effortlessly. The ReactJS framework ensures a dynamic and seamless user experience, with responsive design elements that cater to all device types. This project is a perfect blend of aesthetic appeal and practicality, aimed at delivering an engaging shopping experience for users.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2><u>Contact Me</u></h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Email ID" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Anushka Singh. All Rights Reserved.</p>
+    </footer>
+    <script>
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+        
+                window.scrollTo({
+                    top: targetElement.offsetTop - 60,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.createElement('button');
+        backToTopButton.textContent = '⬆';
+        backToTopButton.classList.add('back-to-top');
+        document.body.appendChild(backToTopButton);
+        
+        backToTopButton.style.position = 'fixed';
+        backToTopButton.style.bottom = '20px';
+        backToTopButton.style.right = '20px';
+        backToTopButton.style.display = 'none';
+        backToTopButton.style.padding = '10px';
+        backToTopButton.style.border = 'none';
+        backToTopButton.style.borderRadius = '50%';
+        backToTopButton.style.backgroundColor = '#007BFF';
+        backToTopButton.style.color = '#fff';
+        backToTopButton.style.cursor = 'pointer';
+        backToTopButton.style.fontSize = '16px';
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form Submission Alert
+        const contactForm = document.querySelector('.contact-section form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            });
+        }
+        
+        // Project Card Hover Effect
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.2)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            });
+        });
+        </script>
+        
+</body>
+</html>
